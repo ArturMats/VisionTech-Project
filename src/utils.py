@@ -1,5 +1,8 @@
+import os
+import random
 import tensorflow as tf
 import numpy as np
+import matplotlib.pyplot as plt
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import RandomFlip, RandomRotation, RandomZoom, RandomContrast
 
@@ -49,3 +52,40 @@ def get_augmentation_layer():
         RandomZoom(0.1),
         RandomContrast(0.1)
     ], name="data_augmentation")
+
+
+def show_associates(x_train_bin, y_train_bin):
+    """
+    Visualizza 10 immagini casuali dal set fornito per verificare 
+    la corretta associazione delle etichette.
+    """
+    target_names = ['Veicolo', 'Animale']
+
+    plt.figure(figsize=(12, 6))
+
+    # Selezione indici casuali
+    random_indices = np.random.choice(len(x_train_bin), 10, replace=False)
+
+    for i, idx in enumerate(random_indices):
+        plt.subplot(2, 5, i + 1)
+        plt.imshow(x_train_bin[idx])
+        
+        # Recupero il valore 0 o 1
+        label_idx = int(y_train_bin[idx]) 
+        
+        # Uso il valore per pescare da target_names
+        plt.title(f"{target_names[label_idx]} ({label_idx})")
+        plt.axis('off')
+
+    plt.tight_layout()
+    plt.show()
+
+def fix_random_seeds(seed=42):
+    """
+    Fissa i seed di tutte le librerie per garantire la riproducibilità dei
+    risultati
+    """
+    os.environ['PYTHONHASHSEED'] = str(seed)
+    random.seed(seed)
+    np.random.seed(seed)
+    tf.random.set_seed(seed)
