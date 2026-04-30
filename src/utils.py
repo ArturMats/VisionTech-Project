@@ -101,3 +101,17 @@ def callbacks():
         EarlyStopping(monitor='val_loss', patience=10, restore_best_weights=True, verbose=1),
         ReduceLROnPlateau(monitor='val_loss', factor=0.5, patience=5, min_lr=1e-6, verbose=1)
     ]
+
+def plot_learning_curves(hist,exp_name):
+    """
+    Funzione di visualizzazione grafica delle metriche di loss e accuracy in base 
+    alle epoche
+    """
+    plt.figure(figsize=(10,4))
+    for subplot,curve in enumerate(['loss','accuracy']):
+        plt.subplot(1,2,subplot+1)
+        plt.plot(hist.history[curve],label='training')
+        plt.plot(hist.history['val_'+curve],label='validation')
+        plt.legend()
+        plt.title(exp_name+':'+curve)
+    plt.tight_layout();
