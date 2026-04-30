@@ -5,6 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import RandomFlip, RandomRotation, RandomZoom, RandomContrast
+from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau
 
 def load_and_preprocess_data():
     """
@@ -89,3 +90,14 @@ def fix_random_seeds(seed=42):
     random.seed(seed)
     np.random.seed(seed)
     tf.random.set_seed(seed)
+
+def callbacks():
+    """
+    Implementa l'earlystopping per non far correre il modello inutilmente,
+    usa le metriche migliori ottenute in fase di addestramento e dimezza il learning
+    rate se dopo 5 epoche non scende grazie al ReduceLROnPlateau
+    """
+    return [
+        EarlyStopping(monitor='val_loss', patience=10, restore_best_weights=True, verbose=1),
+        ReduceLROnPlateau(monitor='val_loss', factor=0.5, patience=5, min_lr=1e-6, verbose=1)
+    ]
