@@ -44,4 +44,5 @@ Per motivi di spazio i pesi in formato .h5 sono stati salvati esternamente (salv
 ## INTERFACCIA DEL MODELLO IMPLEMENTATO
 
 Per una verifica interattiva del modello è stato usato Gradio che permette di caricare l'immagine per verificare la classificazione.
-
+Immagine demo della schermata di riconoscimento:
+![Interfaccia Gradio](Gradio_demo.png)
