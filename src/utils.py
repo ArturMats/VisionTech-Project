@@ -22,21 +22,21 @@ def load_and_preprocess_data():
     vehicle_indexes = [1, 9]
     target_indexes = animal_indexes + vehicle_indexes
 
-    # Creazione maschere di filtraggio
+    # Creazione maschere di filtraggio:
     mask_train = np.isin(y_train.flatten(), target_indexes)
     mask_test = np.isin(y_test.flatten(), target_indexes)
 
-    # Applicazione maschera
+    # Applicazione maschera:
     x_train_bin = x_train[mask_train]
     y_train_bin = y_train[mask_train]
     x_test_bin = x_test[mask_test]
-    y_test_bin = y_test[mask_test] # Corretto: prima puntava a x_test
+    y_test_bin = y_test[mask_test] 
 
     # Binarizzazione: 0 = Veicolo, 1 = Animale
     y_train_bin = np.isin(y_train_bin, animal_indexes).astype(int)
     y_test_bin = np.isin(y_test_bin, animal_indexes).astype(int)
 
-    # Normalizzazione pixel
+    # Normalizzazione pixel:
     x_train_bin = x_train_bin.astype('float32') / 255.0
     x_test_bin = x_test_bin.astype('float32') / 255.0
 
@@ -64,17 +64,17 @@ def show_associates(x_train_bin, y_train_bin):
 
     plt.figure(figsize=(12, 6))
 
-    # Selezione indici casuali
+    # Selezione indici casuali:
     random_indices = np.random.choice(len(x_train_bin), 10, replace=False)
 
     for i, idx in enumerate(random_indices):
         plt.subplot(2, 5, i + 1)
         plt.imshow(x_train_bin[idx])
         
-        # Recupero il valore 0 o 1
+        # Recupero il valore 0 o 1:
         label_idx = int(y_train_bin[idx]) 
         
-        # Uso il valore per pescare da target_names
+        # Uso il valore per pescare da target_names:
         plt.title(f"{target_names[label_idx]} ({label_idx})")
         plt.axis('off')
 
