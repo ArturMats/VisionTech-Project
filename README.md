@@ -31,10 +31,10 @@ ma che cercasse i pattern.
 
 ## RISULTATI E PERFORMANCE:
 
-Accuracy: 96.45%
-Precision: 99.07%
-Recall: 95.57%
-Loss: 0.1224
+- Accuracy: 96.45%
+- Precision: 99.07%
+- Recall: 95.57%
+- Loss: 0.1224
 
 Questi numeri confermano l'alta affidabilità della rete nel ridurre falsi positivi garantendo che le segnalazioni di 
 pericolo siano precise
