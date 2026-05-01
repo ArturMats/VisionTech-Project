@@ -4,9 +4,9 @@
 
 ### Dataset:
 Utilizzo del dataset CIFAR, contenente migliaia di immagini etichettate in varie categorie, inclusi veicoli e animali.
-###Algoritmo:
+### Algoritmo:
 Implementazione di una rete neurale convoluzionale (CNN) per l'analisi e la classificazione delle immagini.
-###Output:
+### Output:
 Il sistema classificherà correttamente ogni immagine come veicolo o animale.
 
 ## Valutazione del Modello:
