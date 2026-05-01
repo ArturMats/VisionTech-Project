@@ -12,13 +12,16 @@ Il sistema classificherà correttamente ogni immagine come veicolo o animale.
 ## Valutazione del Modello:
 
 Accuratezza: Proporzione di immagini classificate correttamente rispetto al totale.
-Precisione: Qualità delle predizioni positive, indicando la proporzione di immagini correttamente identificate.
-Analisi dei Risultati:
 
-## Identificazione di eventuali pattern di errore.
+Precisione: Qualità delle predizioni positive, indicando la proporzione di immagini correttamente identificate.
+
+## Analisi dei Risultati:
+
+Identificazione di eventuali pattern di errore.
 Valutazione delle categorie di immagini confuse sistematicamente.
 Esame delle immagini errate e riflessione su possibili migliorie al modello.
-Risultato Finale:
+
+## Risultato Finale:
 
 Presentazione completa della rete neurale convoluzionale e delle sue capacità di discriminazione tra veicoli e animali.
 
