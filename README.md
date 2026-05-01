@@ -18,7 +18,9 @@ Precisione: Qualità delle predizioni positive, indicando la proporzione di imma
 ## Analisi dei Risultati:
 
 Identificazione di eventuali pattern di errore.
+
 Valutazione delle categorie di immagini confuse sistematicamente.
+
 Esame delle immagini errate e riflessione su possibili migliorie al modello.
 
 ## Risultato Finale:
